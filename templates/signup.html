@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<header>
+  <h1>Sign Up</h1>
+</header>
+
+<hr>
+
+<main>
+  <form method="post">
+    <p>Username</p>
+    <input type="text" name="username" value="">
+
+    <p>Password</p>
+    <input type="password" name="password" value="">
+
+    <p>Verify password</p>
+    <input type="password" name="verify" value="">
+
+    <p>Email (optional)</p>
+    <input type="text" name="email" value="">
+
+    <br>
+    <br>
+
+    <input type="submit">
+  </form>
+
+  <br>
+  <br>
+
+  <div class="signin-alert">
+    <p>Already have an account? <a href="">Sign in here</a>.</p>
+  </div>
+</main>
+
+{% endblock %}
