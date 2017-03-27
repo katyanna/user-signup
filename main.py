@@ -17,10 +17,16 @@ def valid_email(email):
     return not email or EMAIL_RE.match(email)
 
 @app.route('/signup', methods=['GET', 'POST'])
-def get():
+def signup():
+    if request.method == 'POST':
+        return save_signup_info()
+    else:
+        return show_signup_form()
+
+def show_signup_form():
     return render_template("signup.html")
 
-def post():
+def save_signup_info():
     have_error = False
     username = request.args.get("username")
     password = request.args.get("password")
