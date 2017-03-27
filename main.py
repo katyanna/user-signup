@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import jinja2
 import re
 
@@ -48,9 +48,14 @@ def post():
     if have_error:
         return render_template("signup.html", **params)
     else:
-        return redirect("/welcome?username=" + username)
+        return redirect(url_for('welcome'))
 
+@app.route('/welcome')
+def welcome():
+    username = request.args.get('username')
+    return render_template("welcome.html", username = username)
 
 @app.errorhandler(404)
 def page_not_found(e):
     """Return a custom 404 error."""
+    return 'Sorry, nothing at this URL.', 404
