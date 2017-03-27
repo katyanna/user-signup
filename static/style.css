@@ -26,6 +26,10 @@ h1 {
   text-align: center;
 }
 
+.error {
+  color: #C3122F;
+}
+
 input {
   width: 100%;
   min-height: 40px;
