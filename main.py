@@ -54,12 +54,11 @@ def save_signup_info():
     if have_error:
         return render_template("signup.html", **params)
     else:
-        return redirect(url_for('welcome'))
+        return redirect(url_for('welcome', username = username))
 
 @app.route('/welcome')
 def welcome():
-    username = request.args.get('username')
-    return render_template("welcome.html", username = username)
+    return render_template("welcome.html", username = request.args.get('username'))
 
 @app.errorhandler(404)
 def page_not_found(e):
