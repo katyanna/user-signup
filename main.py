@@ -28,10 +28,10 @@ def show_signup_form():
 
 def save_signup_info():
     have_error = False
-    username = request.args.get("username")
-    password = request.args.get("password")
-    verify   = request.args.get("verify")
-    email    = request.args.get("email")
+    username = request.form.get("username")
+    password = request.form.get("password")
+    verify   = request.form.get("verify")
+    email    = request.form.get("email")
 
     params = dict(username = username,
                   email = email)
